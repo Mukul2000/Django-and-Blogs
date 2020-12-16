@@ -34,5 +34,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name = 'users/logout.html'), name = 'logout'),
     #if we don't specify template_name for logout, it'll show a default logout view
     #and a link to redirect users to admin login. not correct.
+
+    path('profile/', user_views.profile, name = 'profile'),
     
 ]
