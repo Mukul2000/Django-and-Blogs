@@ -123,4 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4' #tell crispy forms what to use
+
+LOGIN_REDIRECT_URL = 'blog-home' #tell django to redirect new logins to
+# the home page. otherwise django by default goes to /accounts/profile.
