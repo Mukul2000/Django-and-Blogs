@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -123,6 +124,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') 
+#full directory path for django to store uploaded files
+#for performance reasons, these are stored in a filysystem, not a database.
+
+MEDIA_URL = '/media/' #how we'll access the media directory from the browser.
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4' #tell crispy forms what to use
 
 LOGIN_REDIRECT_URL = 'blog-home' #tell django to redirect new logins to
@@ -131,7 +138,6 @@ LOGIN_REDIRECT_URL = 'blog-home' #tell django to redirect new logins to
 LOGIN_URL = 'login' #If a logged out user tries to go to /profile
 # they'll be stopped at a 404 error. This makes sure they get redirected 
 #the login page.
-
 #you mmight notice ?next attribute.
 #it basically gets you back to the page you were trying to access before
 #logging in.
