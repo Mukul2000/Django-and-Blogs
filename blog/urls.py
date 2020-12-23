@@ -9,9 +9,12 @@ by django at first.
 
 from django.urls import path
 from . import views
+from .views import PostListView, PostDetailView
+#we have to create a url pattern with a variable, why? because we are looking
+#into details of a particular post.
 
 urlpatterns = [
-    path('', views.home, name = "blog-home"),
+    path('', PostListView.as_view(), name = "blog-home"),
     #'' is empty, meaning no localhost:8000/anything
     #required, it'll be there by default.
 
@@ -21,8 +24,10 @@ urlpatterns = [
 
     #NOTE: you do not need to put path for about into the main urls.py
     #why? this is a subdirectory (say) for THIS app.
-
     #you can access it using localhost:8000/blog/about.
     #/blog sends django here, /about activates the about page.
-    
+
+
+    path('<post>/<int:pk>/', PostDetailView.as_view(), name = "post-detail"),
+    #since this refers to a particular post, pk here is the primary key of the post
 ] 
