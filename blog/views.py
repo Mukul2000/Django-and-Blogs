@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .models import Post
-from django.views.generic import ListView, DetailView
+from django.views.generic import (
+    ListView, 
+    DetailView,
+    CreateView
+    )
 
 def home(request):
     context = {
@@ -30,7 +34,16 @@ class PostDetailView(DetailView):
     #this class will be looking for template <app>/<model>_<viewtype>.html
     # i.e blog/post_detail.html
 
-    
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['title','content']
+    #unlike other views, it shares template with update
+    #looks form <model>_form.html
+
+    def form_valid(self,form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 def about(request):
     return render(request, 'blog/about.html',{'title': 'About'})

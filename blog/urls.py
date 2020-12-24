@@ -9,9 +9,8 @@ by django at first.
 
 from django.urls import path
 from . import views
-from .views import PostListView, PostDetailView
-#we have to create a url pattern with a variable, why? because we are looking
-#into details of a particular post.
+from .views import PostListView, PostDetailView, PostCreateView
+
 
 urlpatterns = [
     path('', PostListView.as_view(), name = "blog-home"),
@@ -29,5 +28,10 @@ urlpatterns = [
 
 
     path('<post>/<int:pk>/', PostDetailView.as_view(), name = "post-detail"),
+    #we have to create a url pattern with a variable, why? because we are looking
+    #into details of a particular post.
     #since this refers to a particular post, pk here is the primary key of the post
+
+
+    path('<post>/new/', PostCreateView.as_view(), name = "post-create"),
 ] 
