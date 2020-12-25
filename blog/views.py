@@ -40,6 +40,7 @@ class PostCreateView(CreateView):
     fields = ['title','content']
     #unlike other views, it shares template with update
     #looks form <model>_form.html
+    success_url = ''
 
     def form_valid(self,form):
         form.instance.author = self.request.user
