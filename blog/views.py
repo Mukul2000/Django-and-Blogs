@@ -18,6 +18,9 @@ class PostListView(ListView):
     context_object_name = 'posts'
     # 'date-posted' gives normal sorting, adding '-' sorts in reverse.
     ordering = ['-date_posted']
+    paginate_by = 5
+    #pagination is basically preventing all of the posts to load at once,
+    #in a scenario with a large number of posts, this will
 
 
 """
