@@ -9,7 +9,13 @@ by django at first.
 
 from django.urls import path
 from . import views
-from .views import PostListView, PostDetailView, PostCreateView
+from .views import (
+    PostListView,
+     PostDetailView, 
+     PostCreateView,
+     PostUpdateView,
+     PostDeleteView
+     )
 
 
 urlpatterns = [
@@ -27,11 +33,17 @@ urlpatterns = [
     #/blog sends django here, /about activates the about page.
 
 
-    path('<post>/<int:pk>/', PostDetailView.as_view(), name = "post-detail"),
+    path('post/<int:pk>/', PostDetailView.as_view(), name = "post-detail"),
     #we have to create a url pattern with a variable, why? because we are looking
     #into details of a particular post.
     #since this refers to a particular post, pk here is the primary key of the post
 
 
-    path('<post>/new/', PostCreateView.as_view(), name = "post-create"),
+    path('post/new/', PostCreateView.as_view(), name = "post-create"),
+
+    path('post/<int:pk>/update', PostUpdateView.as_view(), name = "post-update"),
+    # we just need to pass in the primary key of what we need to update, the 
+    #django view will take care of the rest.
+
+    path('post/<int:pk>/delete', PostDeleteView.as_view(), name = "post-delete"),
 ] 
