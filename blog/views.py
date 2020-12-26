@@ -10,15 +10,6 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 # UserPassesTestMixin is to prevent non authors of a post from editing the post
 
-
-def home(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/home.html', context)
-    # render by default looks in template directory for the app.
-
-
 class PostListView(ListView):
     model = Post
     # template of the form <app>/<model>_<viewtype>.html
