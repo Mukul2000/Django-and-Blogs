@@ -14,7 +14,8 @@ from .views import (
      PostDetailView, 
      PostCreateView,
      PostUpdateView,
-     PostDeleteView
+     PostDeleteView,
+     UserPostListView
      )
 
 
@@ -22,6 +23,9 @@ urlpatterns = [
     path('', PostListView.as_view(), name = "blog-home"),
     #'' is empty, meaning no localhost:8000/anything
     #required, it'll be there by default.
+
+    path('user/<str:username>', UserPostListView.as_view(), name = "user-posts"),
+    #things inside angled brackets <> are url variables.
 
     #django comes here from the main urls.py, and matches the pattern
     #given to it by the include function.
@@ -46,4 +50,8 @@ urlpatterns = [
     #django view will take care of the rest.
 
     path('post/<int:pk>/delete', PostDeleteView.as_view(), name = "post-delete"),
+    #post delete url
+
+
+
 ] 
