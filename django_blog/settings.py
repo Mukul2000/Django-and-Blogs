@@ -141,3 +141,7 @@ LOGIN_URL = 'login' #If a logged out user tries to go to /profile
 #you mmight notice ?next attribute.
 #it basically gets you back to the page you were trying to access before
 #logging in.
+
+
+EMAIL_HOST = 'localhost' 
+EMAIL_PORT = 1025
