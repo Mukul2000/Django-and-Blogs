@@ -46,10 +46,15 @@ urlpatterns = [
 
     path('password-reset/done', auth_views.PasswordResetDoneView.as_view(
         template_name='users/password_reset_done.html'), name='password_reset_done'),
+        #notifies that a email has been sent for reset
 
     path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
         template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
     #this is used to reset your password, after you click the link on your email
+
+    path('password-complete', auth_views.PasswordResetCompleteView.as_view(
+        template_name='users/password_reset_complete.html'), name='password_reset_complete'),
+        #finally tells password has been reset succesfully.
 ]
 
 
