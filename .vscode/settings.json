@@ -1,5 +1,5 @@
 {
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
-    "python.pythonPath": "/home/mukul/.virtualenvs/DjangoTutorial-91WE7nkJ/bin/python"
+    "python.pythonPath": "/home/spodermon/.virtualenvs/django_tutorial-qasE5iwT/bin/python"
 }
