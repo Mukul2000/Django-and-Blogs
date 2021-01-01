@@ -8,6 +8,8 @@ blogs.
 * Django 3.5
 
 ## Setup
+```
 $ run pip install django
 $ run pip install django-crispy-forms
 $ run pip install pillow
+```
