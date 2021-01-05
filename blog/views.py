@@ -101,3 +101,8 @@ class PostCommentView(LoginRequiredMixin, CreateView):
     model = Comment
     fields = ['body']
     success_url = ''
+
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        form.instance.name = self.request.user
+        return super().form_valid(form)
