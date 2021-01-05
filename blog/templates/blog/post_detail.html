@@ -19,5 +19,18 @@ reduces the amount of code needed to make a view-->
         <p class="article-content">{{ object.content }}</p>
     </div>
 </article>
+<div class="comments-section">
+    <h2> Comments </h2>
+    {%if not post.comments.all %}
+        No comments yet...<a href = "#">Add a comment </a>
+    {%else%}
+        {%for comment in post.comments.all%}
+        <hr>
+           <strong>{{comment.name}} - {{comment.date_added }}</strong>
+           {{ comment.body }}
+           <hr>
+        {%endfor%}
+    {%endif%}
+</div>
 
 {% endblock content %}
