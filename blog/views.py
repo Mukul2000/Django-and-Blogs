@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
+from .models import Post,Comment
 from django.contrib.auth.models import User
 from django.views.generic import (
     ListView,
@@ -96,3 +96,8 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return False
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
+
+class PostCommentView(LoginRequiredMixin, CreateView):
+    model = Comment
+    fields = ['body']
+    success_url = ''

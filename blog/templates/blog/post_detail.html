@@ -11,8 +11,9 @@ reduces the amount of code needed to make a view-->
             <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
             <small class="text-muted">{{ object.date_objected|date:"F d, Y" }}</small>
             {%if object.auth == user %}
-                <button><a class  = "btn btn-secondary btn-sm mt-1 mb-1" href = "url 'post-update' object.id"> Update </a></button>
-                <button><a class  = "btn btn-danger btn-sm mt-1 mb-1" href = "url 'post-delete' object.id"> Delete </a></button>
+            <button><a class="btn btn-secondary btn-sm mt-1 mb-1" href="url 'post-update' object.id"> Update
+                </a></button>
+            <button><a class="btn btn-danger btn-sm mt-1 mb-1" href="url 'post-delete' object.id"> Delete </a></button>
             {%endif%}
         </div>
         <h2 class="article-title"> {{ object.title }}</h2>
@@ -22,14 +23,15 @@ reduces the amount of code needed to make a view-->
 <div class="comments-section">
     <h2> Comments </h2>
     {%if not post.comments.all %}
-        No comments yet...<a href = "#">Add a comment </a>
+    No comments yet...<a href="{% url 'add-comment' post.pk %}">Add a comment </a>
     {%else%}
-        {%for comment in post.comments.all%}
-        <hr>
-           <strong>{{comment.name}} - {{comment.date_added }}</strong>
-           {{ comment.body }}
-           <hr>
-        {%endfor%}
+    <a href="{% url 'add-comment' post.pk %}">Add a comment </a>
+    {%for comment in post.comments.all%}
+    <hr>
+    <strong>{{comment.name}} - {{comment.date_added }}</strong>
+    {{ comment.body }}
+    <hr>
+    {%endfor%}
     {%endif%}
 </div>
 
