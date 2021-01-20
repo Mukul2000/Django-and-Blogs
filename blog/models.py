@@ -19,6 +19,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
 
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
+
 
 class Comment(models.Model):
     post = models.ForeignKey(

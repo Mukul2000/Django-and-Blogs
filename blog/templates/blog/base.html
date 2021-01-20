@@ -39,7 +39,9 @@
             <!--Django provides us with user variable to check if -->
             <!-- user is authenticated or not-->
             {%if user.is_authenticated %}
+            {%if user.is_superuser %}
             <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+            {%endif%}
             <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
             <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
             {% else %}

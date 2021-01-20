@@ -53,7 +53,7 @@ class PostDetailView(DetailView):
     # i.e blog/post_detail.html
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin,UserPassesTestMixin, CreateView):
     model = Post
     fields = ['title', 'content']
     # unlike other views, it shares template with update
@@ -63,6 +63,12 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    def test_func(self):
+        if(self.request.user.is_superuser):
+            return True
+        else:
+            return False
 
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
