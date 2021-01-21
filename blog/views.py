@@ -55,7 +55,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin,UserPassesTestMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'header_image']
     # unlike other views, it shares template with update
     # looks form <model>_form.html
     success_url = ''
@@ -73,7 +73,7 @@ class PostCreateView(LoginRequiredMixin,UserPassesTestMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'header_image']
     # unlike other views, it shares template with update
     # looks form <model>_form.html
     success_url = ''

@@ -17,9 +17,14 @@ reduces the amount of code needed to make a view-->
             {%endif%}
         </div>
         <h2 class="article-title"> {{ object.title }}</h2>
+        {%if post.head_image %}
+            <img src="{{ object.header_image.url }}"> <br>
+        {%endif%}
         <p class="article-content">{{ object.content }}</p>
     </div>
 </article>
+
+
 <div class="comments-section">
     <h2> Comments </h2>
     {%if not post.comments.all %}
