@@ -2,11 +2,12 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
-
+from ckeditor.fields import RichTextField
 
 class Post(models.Model):
     title = models.CharField(max_length=1600)
-    content = models.TextField()
+    #content = models.TextField()
+    content = RichTextField(blank=True, null = True)
     date_posted = models.DateTimeField(default=timezone.now)
     # we are not using timezone.now() because we dont want
     # to call the function, we are just passing a reference
@@ -20,7 +21,7 @@ class Post(models.Model):
         return reverse('post-detail', kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
-        super(Profile, self).save(*args, **kwargs)
+        super(Post, self).save(*args, **kwargs)
 
 
 class Comment(models.Model):
