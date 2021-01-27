@@ -16,11 +16,11 @@ reduces the amount of code needed to make a view-->
             <button><a class="btn btn-danger btn-sm mt-1 mb-1" href="url 'post-delete' object.id"> Delete </a></button>
             {%endif%}
         </div>
-        <h2 class="article-title"> {{ object.title }}</h2>
-        {%if post.head_image %}
+        <h2 class="article-title"> {{ object.title|safe }}</h2>
+        {%if post.header_image %}
             <img src="{{ object.header_image.url }}"> <br>
         {%endif%}
-        <p class="article-content">{{ object.content }}</p>
+        <p class="article-content">{{ object.content|safe }}</p>
     </div>
 </article>
 
@@ -28,7 +28,12 @@ reduces the amount of code needed to make a view-->
 <div class="comments-section">
     <h2> Comments </h2>
     {%if not post.comments.all %}
-    No comments yet...<a href="{% url 'add-comment' post.pk %}">Add a comment </a>
+    {% if user.is_authenticated %}
+    No comments yet... <a href="{% url 'add-comment' post.pk %}">Add a comment </a>
+    {%else%}
+    <a href = "{%url 'login' %}"> Log in </a> to post comments
+    {%endif%}
+
     {%else%}
     <a href="{% url 'add-comment' post.pk %}">Add a comment </a>
     {%for comment in post.comments.all%}
