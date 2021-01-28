@@ -18,6 +18,7 @@ def register(request):
             return redirect('login') #redirect to 
             #login page after you register
     form = UserRegisterForm()
+    
     return render(request,'users/register.html', {'form': form})
 
 #neccessary to prevent a user from going to /profile directly from 

@@ -53,7 +53,7 @@ class PostDetailView(DetailView):
     # i.e blog/post_detail.html
 
 
-class PostCreateView(LoginRequiredMixin,UserPassesTestMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['title', 'content', 'header_image']
     # unlike other views, it shares template with update
