@@ -14,10 +14,10 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self): #override the default save method 
+    def save(self,*args, **kwargs): #override the default save method 
         # we need this to scale down unnecessary large images as 
         #profile pictures
-        super().save()
+        super().save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
