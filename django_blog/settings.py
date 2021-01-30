@@ -26,7 +26,7 @@ SECRET_KEY = 'am@gw&0hmy5-#*z($supuxws^swu0qz9zi+h@!d^nh9tumts3l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['blogherokudjango.herokuapp.com']
+ALLOWED_HOSTS = ['neat-blogs.herokuapp.com']
 
 
 # Application definition
@@ -130,7 +130,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media') 
 #full directory path for django to store uploaded files
