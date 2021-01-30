@@ -26,7 +26,7 @@ SECRET_KEY = 'am@gw&0hmy5-#*z($supuxws^swu0qz9zi+h@!d^nh9tumts3l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['blogherokudjango.herokuapp.com']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -129,6 +130,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 MEDIA_ROOT = os.path.join(BASE_DIR,'media') 
 #full directory path for django to store uploaded files
 #for performance reasons, these are stored in a filysystem, not a database.
@@ -149,3 +152,8 @@ LOGIN_URL = 'login' #If a logged out user tries to go to /profile
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+
+
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
