@@ -5,7 +5,7 @@ blogs.
 
 
 <h1> Check out the live deployed website  </h1>
-<h2> --> neat-blogs.herokuapp.com <-- Copy paste link in browser :) </h2>
+<h2> --> http://www.neat-blogs.herokuapp.com <-- Copy paste link in browser :) </h2>
 
 
 
