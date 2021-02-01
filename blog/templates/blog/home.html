@@ -1,7 +1,9 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-<h1> Blog Home!! </h1>
+<div id = "Intro">
+<h1> Neat Blogs </h1>
+</div>
 {% for post in posts %}
 <article class="media content-section">
     <img class="rounded-circle article-img" src="{{post.author.profile.image.url}}">
