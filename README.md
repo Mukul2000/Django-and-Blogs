@@ -1,4 +1,4 @@
-# Django Blogger
+# Django Blog
 
 This project is a website using django as a backend where you can post
 blogs.
@@ -15,6 +15,7 @@ blogs.
 $ pip install django
 $ pip install django-crispy-forms
 $ pip install pillow
+$ pip install django-ckeditor
 ```
-
+<h1> Check out the live deployed website https://www.neat-blogs.herokuapp.com </h1>
 
