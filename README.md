@@ -4,8 +4,8 @@ This project is a website using django as a backend where you can post
 blogs.
 
 
-<h1> Check out the live deployed website --> neat-blogs.herokuapp.com </h1>
-<h2> Copy paste link in browser :)
+<h1> Check out the live deployed website  </h1>
+<h2> --> neat-blogs.herokuapp.com <-- Copy paste link in browser :) </h2>
 
 
 
