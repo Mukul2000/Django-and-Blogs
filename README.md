@@ -1,11 +1,12 @@
 # Django Blog
 
-This project is a website using django as a backend where you can post
-blogs.
-
+This is a webapp powered by django allowing you to write and share posts!
 
 <h1> Check out the live deployed website  </h1>
-<h2> --> http://neat-blogs.herokuapp.com <-- Copy paste link in browser :) </h2>
+<h2> --> http://neat-blogs.herokuapp.com <-- </h2>
+ <h4> Note : Please choose a radically different username and password for signing up. You may need to try once or twice.
+             Password you choose must contain letters and numbers and cannot include any part of the username.
+             his issue is being worked on, sorry for inconvenience.</h4>
 
 
 
